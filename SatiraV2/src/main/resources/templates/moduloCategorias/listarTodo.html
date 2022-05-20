@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="layout::head">
+<meta charset="UTF-8">
+<title>Lista de Categorías</title>
+</head>
+<body th:background="@{/img/bar.jpg}">
+	<header>
+		<!-- Primera barra de navegacion-->
+		<nav th:replace="layout::menucrud"
+			class="navbar navbar-expand-sm navbar-dark"></nav>
+	</header>
+
+	<div id="barra" class="jumbotron text-white">
+		<div class="container p-2">
+			<h1 class="display-3">Mantenimiento de Categoría</h1>
+		</div>
+	</div>
+	
+	<div class="estilo1">
+		<div align="center" class="container bg-dark text-light">
+			<h1>Listado de Categorías</h1>
+			<a th:href="@{/categoria/nuevo}">Nueva Categoría</a> <br /> <br />
+			<table class="table text-light">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Nombre</th>
+						<th>Descripción</th>
+						<th>Opciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="categoria:${listaCategorias}">
+						<td th:text="${categoria.idCategoria}">Id</td>
+						<td th:text="${categoria.nombreCategoria}">Nombre</td>
+						<td th:text="${categoria.descripcionCategoria}">Descripción</td>
+						<td><a
+							th:href="@{/categoria/actualizar/{idCategoria}(idCategoria=${categoria.idCategoria})}">Actualizar</a>
+							&nbsp;&nbsp;&nbsp; <a
+							th:href="@{/categoria/eliminar/{idCategoria}(idCategoria=${categoria.idCategoria})}">Eliminar</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>

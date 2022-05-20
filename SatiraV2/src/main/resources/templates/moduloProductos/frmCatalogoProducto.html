@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="layout::head">
+<meta charset="UTF-8">
+<title>Catálogo de Productos</title>
+</head>
+<body th:background="@{/img/bar.jpg}">
+
+	<!-- NAVBAR-->
+	<header>
+		<nav th:replace="layout::menu"
+			class="navbar navbar-expand-sm navbar-dark"></nav>
+	</header>
+
+	<!-- CABECERA de Productos -->
+	<div id="barra" class="jumbotron text-white">
+		<div class="container p-2">
+			<h1 text-center class="display-3">Catálogo de Productos</h1>
+		</div>
+	</div>
+
+	<!-- CATALOGO DE PRODUCTOS -->
+	<div class="container" id="barra">
+		<div class="row">
+
+			<!-- CATEGORIAS -->
+			<div class="col-3 py-5 bg-dark listacate">
+				<p class="h5 text-secondary">Categorías</p>
+				<div>
+					<ul class="list-group list-group-flush"
+						th:each="categoria:${listaCategorias}">
+						<li class="list-group-item bg-dark text-white"
+							th:text="${categoria.nombreCategoria}"><a> </a></li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- CATALOGO DE PRODUCTOS -->
+			<div class="col-9">
+				<div class="row">
+					<div class="card p-3 col-3 cat1"
+						th:each="producto:${listaProductos}" th:if="${producto.idEstado == 1}"
+						style="width: 18rem; border-radius: 20px;">
+						
+							<!-- IMAGEN DEL PRODUCTO -->
+							<img th:src="@{'/archivos/' + ${producto.imagen}}"
+								th:alt="${producto.imagen}" class="rounded-3 img-thumbnail">
+							<!-- DATOS DE PRODUCTO -->
+							<div class="card-body">
+								<a class="text-primary"
+									th:href="@{/producto/detalle/{idProducto}(idProducto=${producto.idProducto})}">
+									<h5 class="card-title" th:text="${producto.nombre}"></h5>
+								</a>
+								<p class="card-text"
+									th:text="${producto.descripcion + ', ' + producto.presentacion + ', ' + producto.volumen + ', ' + producto.contenido}"></p>
+								<p class="text-light" th:text="${'Stock: ' + producto.stock}"></p>
+								<p class="text-light blockquote" th:text="${producto.marca}"></p>
+							</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<nav th:replace="layout::footer"
+		class="navbar navbar-expand-sm navbar-dark"></nav>
+</body>
+</html>

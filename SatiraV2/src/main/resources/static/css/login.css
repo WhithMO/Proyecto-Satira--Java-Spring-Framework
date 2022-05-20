@@ -1,0 +1,12 @@
+body{
+
+    background-image: url('/img/bar.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+}
+
+.centro {
+    display: grid;
+    min-height: 100vh;
+}

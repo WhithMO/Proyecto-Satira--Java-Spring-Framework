@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="layout::head">
+<meta charset="UTF-8">
+<title>Crear nuevo Estado</title>
+</head>
+<body th:background="@{/img/bar.jpg}">
+	<header>
+		<!-- Primera barra de navegacion-->
+		<nav th:replace="layout::menucrud"
+			class="navbar navbar-expand-sm navbar-dark"></nav>
+	</header>
+
+	<div id="barra" class="jumbotron text-white">
+		<div class="container p-2">
+			<h1 class="display-3">Mantenimiento de Estado</h1>
+		</div>
+	</div>
+
+	<div class="estilo1">
+		<div align="center" class="container bg-dark text-light">
+			<h1>Nuevo Estado</h1>
+			<br />
+			<form action="#" th:action="@{/estado/guardar}" th:object="${estado}"
+				method="post">
+
+				<table border="0" cellpadding="10">
+					<tr>
+						<td>Nombre:</td>
+						<td><input type="text" th:field="*{nombre}" required/></td>
+					</tr>
+					<tr>
+						<td>Descripción:</td>
+						<td><input type="text" th:field="*{descripcion}" required/></td>
+					</tr>
+
+					<tr>
+						<td colspan="2"><button class="btn btn-primary" type="submit">Guardar</button></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</html>

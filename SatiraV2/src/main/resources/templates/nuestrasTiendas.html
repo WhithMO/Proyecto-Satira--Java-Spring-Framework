@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head th:replace="layout::head">
+<meta charset="UTF-8">
+<title>Home || Reservas</title>
+</head>
+<body th:background="@{/img/bar.jpg}">
+
+	<!-- NAVBAR-->
+	<header>
+		<nav th:replace="layout::menu"
+			class="navbar navbar-expand-sm navbar-dark">
+			<div class="container">
+		</nav>
+	</header>
+
+	<main role="main">
+
+		<!-- Cabecera -->
+		<div id="barra" class="jumbotron text-white">
+			<div class="container p-2">
+				<h1 text-center class="display-3">Sedes Sátira</h1>
+				<p text-center>Sátira, donde lo artesanal es primero.</p>
+			</div>
+		</div>
+
+		<div class="container-fluid">
+			<div class="row justify-content-center">
+				<div class="col-auto p-1"></div>
+				<div id="cat" class="card p-3 "
+					style="width: 18rem; border-radius: 20px;">
+					<img th:src="@{/img/t1.jpg}" class="rounded-3 img-thumbnail"
+						alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Barranco</h5>
+						<p class="card-text">Lunes a Viernes</p>
+						<p class="card-text">Horario: 9:00 AM a 11:00 PM</p>
+						<p class="card-text">Av. 28 de julio 206 Barranco</p>
+
+					</div>
+				</div>
+
+				<div id="cat" class="card p-3"
+					style="width: 18rem; border-radius: 20px;">
+					<img th:src="@{/img/t2.jpg}" class="rounded-3 img-thumbnail"
+						alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Cieneguilla</h5>
+						<p class="card-text">Lunes a Viernes</p>
+						<p class="card-text">Horario: 9:00 AM a 11:00 PM</p>
+						<p class="card-text">Cieneguilla 15593</p>
+					</div>
+				</div>
+
+				<div id="cat" class="card p-3"
+					style="width: 18rem; border-radius: 20px;">
+					<img th:src="@{/img/t3.jpg}" class="rounded-3 img-thumbnail"
+						alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">La_Molina</h5>
+						<p class="card-text">Lunes a Viernes</p>
+						<p class="card-text">Horario: 9:00 AM a 11:00 PM</p>
+						<p class="card-text">Jr. Bambues 198</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<div class="container-fluid">
+			<div class="row justify-content-center">
+				<div class="col-auto p-1"></div>
+				<div id="cat" class="card p-3 "
+					style="width: 18rem; border-radius: 20px;">
+					<img th:src="@{/img/t4.jpg}" class="rounded-3 img-thumbnail"
+						alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Lince</h5>
+						<p class="card-text">Lunes a Viernes</p>
+						<p class="card-text">Horario: 9:00 AM a 11:00 PM</p>
+						<p class="card-text">Jirón Colón 320</p>
+					</div>
+				</div>
+
+				<div id="cat" class="card p-3"
+					style="width: 18rem; border-radius: 20px;">
+					<img th:src="@{/img/t5.jpg}" class="rounded-3 img-thumbnail"
+						alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Miraflores</h5>
+						<p class="card-text">Lunes a Viernes</p>
+						<p class="card-text">Horario: 9:00 AM a 11:00 PM</p>
+						<p class="card-text">Lince 136</p>
+					</div>
+				</div>
+
+				<div id="cat" class="card p-3"
+					style="width: 18rem; border-radius: 20px;">
+					<img th:src="@{/img/t6.jpg}" class="rounded-3 img-thumbnail"
+						alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">San_Borja</h5>
+						<p class="card-text">Lunes a Viernes</p>
+						<p class="card-text">Horario: 9:00 AM a 11:00 PM</p>
+						<p class="card-text">Jiron Unión 147</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+	</main>
+	<nav th:replace="layout::footer"
+		class="navbar navbar-expand-sm navbar-dark"></nav>
+</body>
+</html>

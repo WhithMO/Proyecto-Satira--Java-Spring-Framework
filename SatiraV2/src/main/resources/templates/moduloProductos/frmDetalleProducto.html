@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="layout::head">
+<meta charset="UTF-8">
+<title>Detalle del Producto</title>
+</head>
+<body th:background="@{/img/bar.jpg}">
+	<header>
+		<!-- Primera barra de navegacion-->
+		<nav th:replace="layout::menu"
+			class="navbar navbar-expand-sm navbar-dark"></nav>
+	</header>
+
+
+	<div class="container py-4 cuerpodetalle">
+		<div class="card bg-dark text-light">
+			<h1 class="card-header " th:text="${titulo}"></h1>
+			
+			<div class="card-body row ">
+				<!-- vemos IMAGEN del producto -->
+				<img th:if="${#strings.length(producto.imagen) > 0}"
+					class="col-md-4 img-fluid rounded float-left "
+					style="max-width: 30%; max-length: 30%;"
+					th:src="@{'/archivos/' + ${producto.imagen}}"
+					th:alt="${producto.imagen}" />
+
+				<!-- vemos DETALLE del producto -->
+				<ul class="list-group col-md-8">
+					<li class="list-group-item bg-dark text-light" th:text="'Descripción:	' + ${producto.descripcion}"></li>
+					<li class="list-group-item bg-dark text-light" th:text="'Presentación:	' + ${producto.presentacion}"></li>
+					<li class="list-group-item bg-dark text-light" th:text="'Contenido:	' + ${producto.contenido}"></li>
+					<li class="list-group-item bg-dark text-light" th:text="'Ibu:			' + ${producto.ibu}"></li>
+					<li class="list-group-item bg-dark text-light" th:text="'Volumen:		' + ${producto.volumen}"></li>
+					<li class="list-group-item bg-dark text-light" th:text="'Marca:		' + ${producto.marca}"></li>
+					<li class="list-group-item bg-dark text-light" th:text="'Stock:		' + ${producto.stock}"></li>
+					<li class="list-group-item bg-dark text-light" th:text="'Procedencia: ' + ${producto.procedencia}"></li>
+					<li>
+					<a class="btn btn-danger btn-lg align-left" th:href="@{/contacto/nuevo}">Mas Informacion</a>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+		<nav th:replace="layout::footer"
+		class="navbar navbar-expand-sm navbar-dark"></nav>
+</body>
+</html>

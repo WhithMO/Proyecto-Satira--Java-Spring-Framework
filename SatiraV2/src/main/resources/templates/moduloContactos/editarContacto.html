@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="layout::head">
+<meta charset="UTF-8">
+<title>Editar Solicitudes</title>
+</head>
+<body th:background="@{/img/bar.jpg}">
+	<header>
+		<!-- Primera barra de navegacion-->
+		<nav th:replace="layout::menucrud"
+			class="navbar navbar-expand-sm navbar-dark"></nav>
+	</header>
+
+	<div id="barra" class="jumbotron text-white">
+		<div class="container p-2">
+			<h1 class="display-3">Mantenimiento de Solicitudes</h1>
+		</div>
+	</div>
+	<div class="estilo1">
+		<div align="center" class="container bg-dark text-light">
+			<h1>Editar Solicitudes</h1>
+			<br />
+			<form action="#" th:action="@{/contacto/guardar}"
+				th:object="${cliente}" method="post">
+
+				<table border="0" cellpadding="10">
+
+					<tr>
+						<td>Id Cliente:</td>
+						<td><input type="text" th:field="*{idCliente}"
+							readonly="readonly" /></td>
+					</tr>
+					<tr>
+						<td>Nombre:</td>
+						<td><input type="text" th:field="*{nombre}" /></td>
+					</tr>
+					<tr>
+						<td>Apellidos:</td>
+						<td><input type="text" th:field="*{apellidos}" /></td>
+					</tr>
+					<tr>
+						<td>Correo:</td>
+						<td><input type="email" th:field="*{correo}" /></td>
+					</tr>
+					<tr>
+						<td>Producto:</td>
+						<td><select id="cbousuario" class="form-select"
+							name="idProducto">
+								<option th:each="produc :${listaproductos}"
+									th:if="${produc.idEstado == 1}" th:text="${produc.nombre}"
+									th:value="${produc.idProducto}"></option>
+						</select></td>
+					</tr>
+					<tr>
+						<td>Descripción:</td>
+						<td><input type="text" th:field="*{descripcion}" /></td>
+					</tr>
+
+					<tr>
+						<td colspan="2"><button type="submit" class="btn btn-primary">Guardar</button></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head th:replace="layout::head">
+<meta charset="UTF-8">
+<title>Contáctanos</title>
+</head>
+<body th:background="@{/img/bar.jpg}">
+
+	<header>
+		<!-- Primera barra de navegacion-->
+		<nav th:replace="layout::menu"
+			class="navbar navbar-expand-sm navbar-dark">
+			<div class="container">
+		</nav>
+	</header>
+
+	<div id="barra" class="jumbotron text-white">
+		<div class="container p-2">
+			<h1 class="display-3">Contáctanos</h1>
+			<p>Haga click en el Botón de Whatsapp para comunicarse
+				directamente con nosotros o llene el siguiente formulario.</p>
+			<a  href="https://web.whatsapp.com/"> <img class="imagenwspp"
+				th:src="@{/img/wspplogo.png}"> </img>
+			</a>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col my-auto m-4">
+				<br /> <img th:src="@{/img/log.png}" class="rounded-circle"
+					alt="..." width="400px" height="400px"> <br />
+			</div>
+			<div class="col bg-dark text-light p-4 m-4"
+				style="border-radius: 25px;">
+
+
+				<form th:action="@{/contacto/guardar}" th:object="${cliente}"
+					class="form-control-lg" method="post">
+					<div class="mb-2">
+						<h1>Contáctanos</h1>
+						<label class="form-label">Nombres:</label> <input
+							th:field="*{nombre}" type="text" class="form-control" required />
+					</div>
+					<div class="mb-2">
+						<label class="form-label">Apellidos:</label> <input
+							th:field="*{apellidos}" type="text" class="form-control" required />
+					</div>
+					<div class="mb-2">
+						<label class="form-label">Correo:</label> <input
+							th:field="*{correo}" type="email" class="form-control" required />
+					</div>
+					<div class="mb-2">
+						<label class="form-label">Producto:</label> <select
+							id="cbousuario" class="form-select" name="idProducto">
+							
+							<option th:each="produc :${listaproductos}"
+								th:if="${produc.idEstado == 1}" th:text="${produc.nombre}"
+								th:value="${produc.idProducto}" ></option>
+						</select>
+					</div>
+
+					<div class="mb-2">
+						<label class="form-label">Descripción de su Interés:</label>
+						<textarea th:field="*{descripcion}" class="form-control" required></textarea>
+					</div>
+					<br>
+					<button class="btn btn-outline-light btn-lg" type="submit"
+						href="javascript:resolver()">Registrar</button>
+				</form>
+
+
+				<!-- Ventana Emergente-->
+				<div class="ventanax" id="ventanax">
+					<div class="content">
+						<span class="content-text" id="resultado"> <!-- RESULTADO-->
+						</span>
+						<div class="content-buttons">
+							<a href="#" id="close-button">Aceptar</a>
+						</div>
+					</div>
+				</div>
+				<!-- se llama al archivo PRINCIPAL-->
+				<script th:src="@{/js/bag1.js}"></script>
+			</div>
+		</div>
+	</div>
+
+	<nav th:replace="layout::footer"
+		class="navbar navbar-expand-sm navbar-dark"></nav>
+</body>
+</html>

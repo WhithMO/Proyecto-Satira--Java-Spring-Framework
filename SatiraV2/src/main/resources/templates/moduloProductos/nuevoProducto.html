@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="layout::head">
+<meta charset="UTF-8">
+<title>Crear Nuevo Producto</title>
+</head>
+<body th:background="@{/img/bar.jpg}">
+	<header>
+		<!-- Primera barra de navegacion-->
+		<nav th:replace="layout::menucrud"
+			class="navbar navbar-expand-sm navbar-dark"></nav>
+	</header>
+
+	<div id="barra" class="jumbotron text-white">
+		<div class="container p-2">
+			<h1 class="display-3">Mantenimiento de Producto</h1>
+		</div>
+	</div>
+	<div class="estilo1">
+		<div align="center" class="container bg-dark text-light">
+			<h1>Nuevo Producto</h1>
+			<br />
+
+			<form th:action="@{/producto/guardar}" th:object="${producto}"
+				method="post" enctype="multipart/form-data">
+
+				<table border="0" cellpadding="10">
+					<tr>
+						<td>Nombre:</td>
+						<td><input type="text" th:field="*{nombre}" required/></td>
+					</tr>
+					<tr>
+						<td>Descripción:</td>
+						<td><input type="text" th:field="*{descripcion}" required/></td>
+					</tr>
+					<tr>
+						<td>Presentación:</td>
+						<td><input type="text" th:field="*{presentacion}" required/></td>
+					</tr>
+					<tr>
+						<td>Precio:</td>
+						<td><input type="text" th:field="*{precio}" required/></td>
+					</tr>
+
+					<tr>
+						<td>Contenido:</td>
+						<td><input type="text" th:field="*{contenido}" required/></td>
+					</tr>
+
+					<tr>
+						<td>Ibu:</td>
+						<td><input type="text" th:field="*{ibu}" required/></td>
+					</tr>
+
+					<tr>
+						<td>Volumen:</td>
+						<td><input type="text" th:field="*{volumen}" required/></td>
+					</tr>
+
+					<tr>
+						<td>Marca:</td>
+						<td><input type="text" th:field="*{marca}" required/></td>
+					</tr>
+
+					<tr>
+						<td>Stock:</td>
+						<td><input type="text" th:field="*{stock}" required/></td>
+					</tr>
+
+					<tr>
+						<td>Estado:</td>
+						<td><select id="cbousuario" class="form-select"
+							name="idEstado">
+								<option value="0" selected="selected">Seleccione</option>
+								<option th:each="estad :${listaestados}"
+									th:text="${estad.nombre}" th:value="${estad.idEstado}" ></option>
+						</select></td>
+					</tr>
+
+					<tr>
+						<td>Procedencia:</td>
+						<td><input type="text" th:field="*{procedencia}" required/></td>
+					</tr>
+
+					<tr>
+						<td>Categoría:</td>
+						<td><select id="cbousuario" class="form-select"
+							name="idCategoria">
+								<option value="0" selected="selected">Seleccione</option>
+								<option th:each="catego :${listacategorias}"
+									th:text="${catego.nombreCategoria}"
+									th:value="${catego.idCategoria}"></option>
+						</select></td>
+					</tr>
+
+					<tr>
+						<td>Imagen:</td>
+						<td><input type="file" name="file" class="form-control">
+						</td>
+					</tr>
+
+					<tr>
+						<td colspan="2"><button class="btn btn-primary" type="submit">Guardar</button></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</html>

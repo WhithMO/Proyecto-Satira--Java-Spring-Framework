@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head th:replace="layout::head">
+<meta charset="UTF-8">
+<title>Nosotros</title>
+</head>
+<body th:background="@{/img/bar.jpg}">
+
+	<div>
+		<header>
+			<!-- Primera barra de navegacion-->
+			<nav th:replace="layout::menu"
+				class="navbar navbar-expand-sm navbar-dark">
+				<div class="container">
+			</nav>
+		</header>
+
+		<div class="container text-white">
+			<div class="container p-2">
+				<div id="barra" class="nuestro1">
+					<h1 class="display-3">Nosotros</h1>
+					<p class="textnosotros">La empresa Sátira, dedicada a la
+						comercialización e importación de cervezas con más de nueve años
+						en el mercado, viene creciendo expotencialmente en sus productos
+						creando, elaborando y construyendo marcas que continuaran uniendo
+						a las personas, llegando a los rincones de nuestro litoral,
+						demostrando la calidad y servicio como hemos venido durante esta
+						etapa evolutiva.</p>
+					<p class="textnosotros">Soñamos en grande para crear un futuro
+						con innovacion, diversidad, inclusión y con mas motivos para
+						brindar y asi sumando marcas internacionales.</p>
+				</div>
+				<div id="barra" class="nuestro1">
+					<h1 class="display-3">Misión</h1>
+					<p class="textnosotros">Ofrecer a nuestros clientes productos
+						que resalten los estándares de calidad superando sus espectativas,
+						con distinción en sabor, aroma y color único, generando una buena
+						experiencia de usuario a través de nuestra pagina web
+						automatizada.</p>
+				</div>
+				<div id="barra" class="nuestro1">
+					<h1 class="display-3">Visión</h1>
+					<p class="textnosotros">Ser la empresa cervecera artesanal
+						lider en Perú siendo reconocidos a través de nuestro eficaz
+						sistema web y por la calidad e innovación de nuestros productos.</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+
+	<nav th:replace="layout::footer"
+		class="navbar navbar-expand-sm navbar-dark"></nav>
+</body>
+</html>

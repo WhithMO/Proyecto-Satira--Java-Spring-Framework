@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="layout::head">
+<meta charset="UTF-8">
+<title>Satira || Home</title>
+</head>
+
+<body th:background="@{/img/bar.jpg}">
+	<header>
+		<!-- Primera barra de navegacion-->
+		<nav th:replace="layout::menu"
+			class="navbar navbar-expand-sm navbar-dark"></nav>
+	</header>
+
+
+
+	<!-- CUERPO -->
+	<main role="main">
+
+		<!-- Main jumbotron for a primary marketing message or call to action -->
+		<div id="barra" class="jumbotron text-white">
+			<div class="container p-2">
+				<h1 class="display-3">¡Bienvenido a Sátira!</h1>
+				<p>Un lugar donde puedas sentirte como en casa disfrutando de la
+					mejor calidad</p>
+				<p>
+					<a class="btn btn-danger btn-lg" th:href="@{/nosotros}"
+						role="button">Conócenos &raquo;</a>
+				</p>
+			</div>
+		</div>
+
+		<!-- Listado de Ofertas-->
+		<div class="container-fluid mover">
+			<div class="row justify-content-center">
+				<div class="col-auto p-1"></div>
+
+				<div id="cat" class="card p-3 "
+					style="width: 18rem; border-radius: 20px;">
+					<img src="img/CERVEZA.jpg" class="rounded-3 img-thumbnail img1"
+						alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Corona Sixpack</h5>
+						<p class="card-text">Uno de nuestras mas grandes super ofertas
+							en cervezas importadas desde centroamerica.</p>
+						<p class="card-text">Oferta: 6 unidades por S/30</p>
+						<a th:href="@{/catalogo}" class="btn btn-danger">Mas Productos</a>
+					</div>
+				</div>
+
+				<div id="cat" class="card p-3"
+					style="width: 18rem; border-radius: 20px;">
+					<img id="img" src="img/CUZQUENA.png"
+						class="rounded-3 img-thumbnail img1" alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Cuzqueña Sixpack</h5>
+						<p class="card-text">Una cerveza muy reconocida durante varios
+							años al ser la mejor de todas.</p>
+						<p class="card-text">Oferta: 6 unidades por S/20</p>
+						<a th:href="@{/catalogo}" class="btn btn-danger">Mas Productos</a>
+					</div>
+				</div>
+
+				<div id="cat" class="card p-3"
+					style="width: 18rem; border-radius: 20px;">
+					<img src="img/BARBARIAN.jpg" class="rounded-3 img-thumbnail img1"
+						alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Barbarian 4u.</h5>
+						<p class="card-text">Una de las cervezas artesanales más
+							reconocidas gracias a algunos famosos catadores.</p>
+						<p class="card-text">Oferta: 4 unidades por S/25</p>
+						<a th:href="@{/catalogo}" class="btn btn-danger">Mas Productos</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<nav th:replace="layout::footer"
+		class="navbar navbar-expand-sm navbar-dark"></nav>
+</body>
+
+</html>

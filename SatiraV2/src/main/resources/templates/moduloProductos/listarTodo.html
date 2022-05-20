@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="layout::head">
+<meta charset="UTF-8">
+<title>Lista de Productos</title>
+</head>
+<body th:background="@{/img/bar.jpg}">
+	<header>
+		<!-- Primera barra de navegacion-->
+		<nav th:replace="layout::menucrud"
+			class="navbar navbar-expand-sm navbar-dark"></nav>
+	</header>
+
+	<div id="barra" class="jumbotron text-white">
+		<div class="container p-2">
+			<h1 class="display-3">Mantenimiento de Producto</h1>
+		</div>
+	</div>
+
+	<div class="estilo1">
+		<div align="center" class="container bg-dark text-light">
+			<h1>Listado de Productos</h1>
+			<a th:href="@{/producto/nuevo}">Nuevo Producto</a> <br /> <br />
+			<table class="table text-light">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th></th>
+						<th>Nombre</th>
+						<th>Descripción</th>
+						<th>Presentación</th>
+						<th>Precio</th>
+						<th>Contenido</th>
+						<th>Ibu</th>
+						<th>Volumen</th>
+						<th>Marca</th>
+						<th>Stock</th>
+						<th>Estado</th>
+						<th>Procedencia</th>
+						<th>Categoría</th>
+						<th>Opciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="producto:${listaProductos}">
+						<td th:text="${producto.idProducto}"></td>
+						<td><img th:if="${#strings.length(producto.imagen) > 0}"
+							class="col-md-4 img rounded "
+							style="max-width: 50%; max-length: 50%;"
+							th:src="@{'/archivos/' + ${producto.imagen}}"
+							th:alt="${producto.imagen}" /></td>
+						<td th:text="${producto.nombre}"></td>
+						<td th:text="${producto.descripcion}"></td>
+						<td th:text="${producto.presentacion}"></td>
+						<td th:text="${producto.precio}"></td>
+						<td th:text="${producto.contenido}"></td>
+						<td th:text="${producto.ibu}"></td>
+						<td th:text="${producto.volumen}"></td>
+						<td th:text="${producto.marca}"></td>
+						<td th:text="${producto.stock}"></td>
+						<td th:text="${producto.idEstado}"></td>
+						<td th:text="${producto.procedencia}"></td>
+						<td th:text="${producto.idCategoria}"></td>
+						<td><a
+							th:href="@{/producto/detalle/{idProducto}(idProducto=${producto.idProducto})}">Detalle</a>&nbsp;&nbsp;&nbsp;
+							<a
+							th:href="@{/producto/actualizar/{idProducto}(idProducto=${producto.idProducto})}">Actualizar</a>
+							&nbsp;&nbsp;&nbsp; <a
+							th:href="@{/producto/eliminar/{idProducto}(idProducto=${producto.idProducto})}">Eliminar</a>
+
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>

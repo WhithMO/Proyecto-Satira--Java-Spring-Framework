@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="layout::head">
+<meta charset="UTF-8">
+<title>Lista de Solicitudes</title>
+</head>
+<body th:background="@{/img/bar.jpg}">
+	<header>
+		<!-- Primera barra de navegacion-->
+		<nav th:replace="layout::menucrud"
+			class="navbar navbar-expand-sm navbar-dark"></nav>
+	</header>
+
+	<div id="barra" class="jumbotron text-white">
+		<div class="container p-2">
+			<h1 class="display-3">Mantenimiento de Solicitudes</h1>
+		</div>
+	</div>
+
+	<div class="estilo1">
+		<div align="center" class="container bg-dark text-light">
+			<h1>Listado de Contactos</h1>
+			<a th:href="@{/contacto/nuevo}">Nueva Solicitud</a> <br /> <br />
+			<table class="table text-light">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Nombre</th>
+						<th>Apellidos</th>
+						<th>Correo Electrónico</th>
+						<th>Descripción</th>
+						<th>Producto de Interes</th>
+						<th>Opciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="cliente:${listaClientes}">
+						<td th:text="${cliente.idCliente}">Id</td>
+						<td th:text="${cliente.nombre}">Nombre</td>
+						<td th:text="${cliente.apellidos}">Apellido</td>
+						<td th:text="${cliente.correo}">Correo</td>
+						<td th:text="${cliente.descripcion}">Descripción</td>
+						<td th:text="${cliente.idProducto}"></td>
+						<td><a
+							th:href="@{/contacto/actualizar/{idCliente}(idCliente=${cliente.idCliente})}">Actualizar</a>
+							&nbsp;&nbsp;&nbsp; <a
+							th:href="@{/contacto/eliminar/{idCliente}(idCliente=${cliente.idCliente})}">Eliminar</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

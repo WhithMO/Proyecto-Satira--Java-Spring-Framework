@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="layout::head">
+<meta charset="UTF-8">
+<title>Lista de Estados</title>
+</head>
+<body th:background="@{/img/bar.jpg}">
+	<header>
+		<!-- Primera barra de navegacion-->
+		<nav th:replace="layout::menucrud"
+			class="navbar navbar-expand-sm navbar-dark"></nav>
+	</header>
+
+	<div id="barra" class="jumbotron text-white">
+		<div class="container p-2">
+			<h1 class="display-3">Mantenimiento de Estado</h1>
+		</div>
+	</div>
+
+	<div class="estilo1">
+		<div align="center" class="container bg-dark text-light">
+			<h1>Listado de Estados</h1>
+			<a th:href="@{/estado/nuevo}">Nuevo Estado</a> <br /> <br />
+			<table class="table text-light">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Nombre</th>
+						<th>Descripción</th>
+						<th>Opciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="estado:${listaEstados}">
+						<td th:text="${estado.idEstado}">Id</td>
+						<td th:text="${estado.nombre}">Nombre</td>
+						<td th:text="${estado.descripcion}">Descripción</td>
+						<td><a
+							th:href="@{/estado/actualizar/{idEstado}(idEstado=${estado.idEstado})}">Actualizar</a>
+							&nbsp;&nbsp;&nbsp; <a
+							th:href="@{/estado/eliminar/{idEstado}(idEstado=${estado.idEstado})}">Eliminar</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>
